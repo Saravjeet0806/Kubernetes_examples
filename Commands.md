@@ -5,6 +5,8 @@
 5. kubectl get pods - to get details about pod
 6. kubectl get pods -o wide - to get detailed info about pods
 7. minikube ssh - to login into kubernetes cluster, curl <ip_address of pod> - to run the application
-
+8. kubectl delete pod <name_of_pod> - to delete the pod
+9. kubectl logs <pod_name> - to check logs
+10. kubectl describe pod <pod_name> - to status of pod and debugging
 
 //use kubernetes cheatsheet to get bunch of kubernetes commands
