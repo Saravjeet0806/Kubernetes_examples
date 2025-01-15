@@ -14,6 +14,9 @@
 14. kubectl apply -f pod.yaml - to create pod
 15. kubectl get rs - to get replica sets
 16. kubectl get pods -w - to see what is happening with the pods (realtime)
-17. 
+17. kubectl rollout status deployment/<deployment_name>
+18. kubectl rollout history deployment/<deployment_name> 
+19. kubectl rollout undo deployment/<deployment_name>
+20. kubectl get nodes -o wide - detailed info about nodes.
 
 //use kubernetes cheatsheet to get bunch of kubernetes commands
