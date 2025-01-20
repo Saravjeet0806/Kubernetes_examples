@@ -9,3 +9,4 @@ commands used
 3. kubectl apply -f nginx-deployment.yaml
 4. kubectl get pv
 5. kubectl get pvc
+6. kubectl delete pvc nginx-pvc 
