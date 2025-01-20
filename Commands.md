@@ -18,5 +18,6 @@
 18. kubectl rollout history deployment/<deployment_name> 
 19. kubectl rollout undo deployment/<deployment_name>
 20. kubectl get nodes -o wide - detailed info about nodes.
+21. kubectl edit replicaset new-replica-set - to update replicaset
 
 //use kubernetes cheatsheet to get bunch of kubernetes commands
