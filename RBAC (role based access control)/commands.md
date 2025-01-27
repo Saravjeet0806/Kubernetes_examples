@@ -1,0 +1,1 @@
+For applying the role use - kubectl apply -f role.yaml or kubectl apply -f rolebinding.yaml
