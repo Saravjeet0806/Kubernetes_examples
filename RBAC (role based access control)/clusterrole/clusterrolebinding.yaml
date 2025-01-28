@@ -4,7 +4,7 @@ metadata:
   name: read-secrets-global
 subjects:
 - kind: User
-  name: riya
+  name: john
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
