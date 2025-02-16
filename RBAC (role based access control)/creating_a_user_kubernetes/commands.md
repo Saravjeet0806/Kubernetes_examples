@@ -1,0 +1,28 @@
+https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/ --use this documentation to create users and csr signing requests
+
+
+
+openssl genrsa -out /root/sarav.key 2048
+
+openssl req -new -key /root/sarav.key -out /root/sarav.csr 
+
+ls /root -- check if files are created
+
+cat /root/sarav.csr | base64 | tr -d "\n" -- generate csr request code and paste it in the certificate signing request.yaml files
+
+create sarav.yaml file and paste 
+
+
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: sarav
+spec:
+  request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1ZqQ0NBVDRDQVFBd0VURVBNQTBHQTFVRUF3d0diWGwxYzJWeU1JSUJJakFOQmdrcWhraUc5dzBCQVFFRgpBQU9DQVE4QU1JSUJDZ0tDQVFFQTJ4cU1SUE5EbEZINWhiOEVmU3FLOHFXNnpkMFVYS1htN1NSN2NWU2Uzd210ClB2VytjeHErNzk1M25sT2xvVHVDR09Rak1wSlpKVzlaV0srZ0prNjdPWVh0bWRveUNnTEpUUmtyR3VaSHBqYlUKRWp5NWIyWFk0U0pUeXJvVEwwL3A5UDdCRlFiSlZqUHZQUFliSlkwdlFyMzM2SDUxVmNQRDlQNU4yd3BxM1c3SApBS2NCR250RlJSWTl2cXJwQ0ZjMkcvZE84cFR4bnVtLzlWd2dnUWFKSUh6M3dlQS84eC9aOFhYdndKOFIyTUw0CjhQeW1oVHd1cGc0K2tIbEVZSGV2TnB1OUdXd2dTWVp1amdwckJGcTJDOTduQXdabFJET2g5RUxiNXhteTRiQTQKYkhwc3RMWENnQnFha1pnbUIzcm5ZbkNmTUsrckYwY3hUQ3JJVDhlMGN3SURBUUFCb0FBd0RRWUpLb1pJaHZjTgpBUUVMQlFBRGdnRUJBSDY3ZVdwWC9rU3ErQllmWHUzUVB0cmtES1NUMEdJOGxQSjNNN2ZwSFhzZGdXeXZTVUorClFVUm1QT2gzQkZvNUMwQzFqVWpJRjhUN1UyUUNmbWRNY0FrWmlhTnBkdmJPQ3RzdmhkT3VmcSt4Tk5WNWhPMEUKaWJyUUJSSUw3T3B6Z2tvenVLdW5vY0hpaG5yeGJIeU1sUmMwQ1BOZDNUeCtTdUZEWVRoczVLSXV5RjE2YmhjagpPNm4wYlEwNWpGc3ArU0ZvMk1VZXdQMkxlRUYwRGRCKzEvdHdBaU54QzJ1ZkhjREVEZ0dlQ2hmNmc4R0ZDbFpXCnZyYWlEMHFqbW83MHIxTmU1RTJhVjVpN2VIYVJxV2R5aHZ3a3V2U2c5VVNGSENUQ2FTYjZFMEt3NXVmamNQazkKT05NYy85V2xWNVJHQllBRXJSSURNZUcrcXlhUHhGS2tnZUE9Ci0tLS0tRU5EIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLQo=
+  signerName: kubernetes.io/kube-apiserver-client
+  expirationSeconds: 86400  # one day
+  usages:
+  - client auth
+
+  kubectl get csr --to get csr in the cluster
+  kubectl certificate approve myuser --to approve csr request
