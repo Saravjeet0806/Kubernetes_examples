@@ -3,3 +3,4 @@
 3. kubectl get pods --all-namespaces - to view pods in all namespaces.
 4. kubectl create namespace dev - to create namespace
 5. kubectl config set-context --current --namespace=dev - to switch to other namespace
+6. curl http://my-service.other-namespace.svc.cluster.local - to access a service in another namespace.
