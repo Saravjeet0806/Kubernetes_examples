@@ -1,0 +1,2 @@
+1. kubectl get pods --selector env=dev // when key is env and dev is value.
+2. kubectl get all --selector env=prod --no-headers | wc -l //to get all pods, replicasets and other resources in prod environment, noheaders and wc is used to directly tell the no. of resources in numerical format
