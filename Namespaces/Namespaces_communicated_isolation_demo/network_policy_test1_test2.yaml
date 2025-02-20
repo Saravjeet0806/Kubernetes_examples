@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-test2-to-test1
+  namespace: test1
+spec:
+  podSelector: {}  # Applies to all pods in test1
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: test2  # Allow only from test2
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-test1-to-test2
+  namespace: test2
+spec:
+  podSelector: {}  # Applies to all pods in test2
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: test1  # Allow only from test1
