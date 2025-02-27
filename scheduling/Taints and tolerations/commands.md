@@ -1,0 +1,1 @@
+kubectl describe node node01 | grep -i taints -- check if taints exist on node01
