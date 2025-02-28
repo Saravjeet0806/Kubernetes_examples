@@ -10,4 +10,4 @@ spec:
       effect: "NoSchedule"
   containers:
     - name: nginx
-      image: nginx
+      image: nginx;
