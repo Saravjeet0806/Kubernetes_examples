@@ -18,3 +18,11 @@ kubectl drain node01 --ignore-daemonsets
 –endpoints=[127.0.0.1:2379] This is the default as ETCD is running on master node and exposed on localhost 2379.
 
 –key                 identify secure client using this TLS key file
+
+
+kubectl -n kube-system logs etcd-controlplane | grep -i 'etcd-version' -- to check etcd version
+kubectl -n kube-system describe pod etcd-controlplane
+
+kubectl config view -- to view configuration
+kubectl config use-context cluster1 -- to switch to cluster1
+kubectl get pods -n kube-system | grep etcd -- to view etcd configuration
