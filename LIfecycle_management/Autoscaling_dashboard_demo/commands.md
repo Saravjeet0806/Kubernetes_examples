@@ -11,3 +11,6 @@ kubectl get pods -n kubernetes-dashboard
 kubectl proxy -- to access dashboard
 
 
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/cronjob?namespace=default
+
+
