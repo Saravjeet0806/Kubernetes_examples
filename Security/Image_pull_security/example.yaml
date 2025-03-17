@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-private-pod
+spec:
+  containers:
+    - name: my-container
+      image: registry.example.com/my-image:latest
+      imagePullPolicy: Always
+  imagePullSecrets:
+    - name: my-registry-secret
