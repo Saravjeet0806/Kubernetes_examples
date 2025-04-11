@@ -1,0 +1,1 @@
+kubectl edit service <service_name> -n <namespace_name> -- to edit a service in another namespace
